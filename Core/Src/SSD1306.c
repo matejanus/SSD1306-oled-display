@@ -69,6 +69,17 @@ uint8_t initDisplay()
 	return 0;
 }
 
+void SSD1306_ON(void) {
+	i2cWriteByte(SSD1306_address, 0x00, DCDC_register);
+	i2cWriteByte(SSD1306_address, 0x00, enableDCDC);
+	i2cWriteByte(SSD1306_address, 0x00, displayOn);
+}
+void SSD1306_OFF(void) {
+	i2cWriteByte(SSD1306_address, 0x00, DCDC_register);
+	i2cWriteByte(SSD1306_address, 0x00, disableDCDC);
+	i2cWriteByte(SSD1306_address, 0x00, displayOff);
+}
+
 void SSD1306_clear() {
 	/* Set memory */
 	SSD1306_fillScreen(SSD1306_COLOR_BLACK);

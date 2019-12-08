@@ -20,7 +20,7 @@ enum SSD1306_contrast{
 
 enum SSD1306_power{
 	 DCDC_register = 0x8D,
-	 disableDCDC = 0x00,
+	 disableDCDC = 0x10,
 	 enableDCDC = 0x14,
 };
 
@@ -30,6 +30,10 @@ typedef enum {
 } SSD1306_COLOR_t;
 
 uint8_t initDisplay();
+
+void SSD1306_ON();
+
+void SSD1306_OFF();
 
 void SSD1306_clear();
 
