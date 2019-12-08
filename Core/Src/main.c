@@ -96,6 +96,7 @@ int main(void)
   /* USER CODE END 2 */
   HAL_Delay(100);
   /* Infinite loop */
+  SSD1306_GotoXY(20, 20);
   SSD1306_Puts("test", &Font_7x10, SSD1306_COLOR_WHITE);
   SSD1306_UpdateScreen();
   /* USER CODE BEGIN WHILE */

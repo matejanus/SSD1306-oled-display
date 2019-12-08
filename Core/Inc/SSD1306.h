@@ -43,6 +43,8 @@ void SSD1306_fillScreen(SSD1306_COLOR_t color);
 
 void SSD1306_UpdateScreen();
 
+void SSD1306_GotoXY(uint16_t x, uint16_t y);
+
 void SSD1306_DrawPixel(uint16_t x, uint16_t y, SSD1306_COLOR_t color);
 
 char SSD1306_Putc(char ch, FontDef_t* Font, SSD1306_COLOR_t color);

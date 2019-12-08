@@ -108,6 +108,12 @@ void SSD1306_UpdateScreen() {
 	}
 }
 
+void SSD1306_GotoXY(uint16_t x, uint16_t y) {
+	/* Set write pointers */
+	SSD1306.CurrentX = x;
+	SSD1306.CurrentY = y;
+}
+
 char SSD1306_Putc(char ch, FontDef_t* Font, SSD1306_COLOR_t color) {
 	uint32_t i, b, j;
 
