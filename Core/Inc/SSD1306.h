@@ -7,6 +7,23 @@
 #define SSD1306_WIDTH            128
 #define SSD1306_HEIGHT           64
 
+enum SSD1306_commands{
+	displayOff = 0xAE,
+	displayOn = 0xAF
+};
+
+enum SSD1306_contrast{
+	 contrastRegister = 0x81, //--set contrast control register
+	 minContrast= 0x00,
+	 maxContrast= 0xFF
+};
+
+enum SSD1306_power{
+	 DCDC_register = 0x8D,
+	 disableDCDC = 0x00,
+	 enableDCDC = 0x14,
+};
+
 typedef enum {
 	SSD1306_COLOR_BLACK = 0x00, // Black
 	SSD1306_COLOR_WHITE = 0x01  // white

@@ -29,7 +29,7 @@ uint8_t initDisplay()
 		return 1;
 	}
 
-	i2cWriteByte(SSD1306_address, 0x00, 0xAE); //display off
+	i2cWriteByte(SSD1306_address, 0x00, displayOff);
 	i2cWriteByte(SSD1306_address, 0x00, 0x20); //Set Memory Addressing Mode
 	i2cWriteByte(SSD1306_address, 0x00, 0x10); //00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Page Addressing Mode (RESET);11,Invalid
 	i2cWriteByte(SSD1306_address, 0x00, 0xB0); //Set Page Start Address for Page Addressing Mode,0-7
@@ -37,8 +37,8 @@ uint8_t initDisplay()
 	i2cWriteByte(SSD1306_address, 0x00, 0x00); //---set low column address
 	i2cWriteByte(SSD1306_address, 0x00, 0x10); //---set high column address
 	i2cWriteByte(SSD1306_address, 0x00, 0x40); //--set start line address
-	i2cWriteByte(SSD1306_address, 0x00, 0x81); //--set contrast control register
-	i2cWriteByte(SSD1306_address, 0x00, 0xFF);
+	i2cWriteByte(SSD1306_address, 0x00, contrastRegister);
+	i2cWriteByte(SSD1306_address, 0x00, maxContrast);
 	i2cWriteByte(SSD1306_address, 0x00, 0xA1); //--set segment re-map 0 to 127
 	i2cWriteByte(SSD1306_address, 0x00, 0xA6); //--set normal display
 	i2cWriteByte(SSD1306_address, 0x00, 0xA8); //--set multiplex ratio(1 to 64)
@@ -54,10 +54,9 @@ uint8_t initDisplay()
 	i2cWriteByte(SSD1306_address, 0x00, 0x12);
 	i2cWriteByte(SSD1306_address, 0x00, 0xDB); //--set vcomh
 	i2cWriteByte(SSD1306_address, 0x00, 0x20); //0x20,0.77xVcc
-	i2cWriteByte(SSD1306_address, 0x00, 0x8D); //--set DC-DC enable
-	i2cWriteByte(SSD1306_address, 0x00, 0x14); //
-	i2cWriteByte(SSD1306_address, 0x00, 0xAF); //--turn on SSD1306 panel
-
+	i2cWriteByte(SSD1306_address, 0x00, DCDC_register);
+	i2cWriteByte(SSD1306_address, 0x00, enableDCDC);
+	i2cWriteByte(SSD1306_address, 0x00, displayOn);
 	SSD1306_clear();
 	SSD1306_UpdateScreen();
 
